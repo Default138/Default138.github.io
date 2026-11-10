@@ -1,6 +1,7 @@
 /* ==========================================================
    Portfólio - Rafael Camargo
-   Só HTML + CSS (sem JavaScript, sem bibliotecas externas).
+   HTML + CSS, com um pouco de JavaScript só para o seletor de tema
+   (js/tema.js). Sem bibliotecas externas.
 
    Para mudar as cores do site inteiro, edite as variáveis
    logo abaixo (em :root).
@@ -23,6 +24,19 @@
     --accent-rgb: 168, 211, 95;   /* o mesmo verde, para usar com transparência: rgba(var(--accent-rgb), 0.2) */
     --accent-ink: #13240d;    /* cor do texto sobre o botão verde */
 
+    /* Cores de partes específicas (mudam junto com o tema) */
+    --header-bg: rgba(11, 23, 28, 0.85);
+    --footer-bg: rgba(8, 18, 22, 0.5);
+    --inline-code-bg: rgba(255, 255, 255, 0.09);
+    --inline-code-text: #d6e2ea;
+    --code-bg: #091418;
+    --code-text: #d6e2ea;
+    --code-k: #a8d35f;
+    --code-s: #8fc8da;
+    --code-t: #e3cf6c;
+    --code-c: #7f9690;
+    --scheme: dark;
+
     --radius: 14px;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 
@@ -37,7 +51,7 @@
 }
 
 html {
-    color-scheme: dark;
+    color-scheme: var(--scheme);
     scroll-behavior: smooth;
 }
 
@@ -104,8 +118,8 @@ ul { margin: 0; padding-left: 1.2em; }
     padding: 1px 6px;
     font-family: var(--mono);
     font-size: 0.9em;
-    color: #d6e2ea;
-    background: rgba(255, 255, 255, 0.09);
+    color: var(--inline-code-text);
+    background: var(--inline-code-bg);
     border-radius: 6px;
 }
 
@@ -133,7 +147,7 @@ ul { margin: 0; padding-left: 1.2em; }
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(11, 23, 28, 0.85);
+    background: var(--header-bg);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
 }
@@ -143,7 +157,7 @@ ul { margin: 0; padding-left: 1.2em; }
     flex-wrap: wrap;            /* no celular o menu desce para a linha de baixo */
     align-items: center;
     justify-content: space-between;
-    gap: 4px 24px;
+    gap: 8px 16px;
     padding-block: 10px;
 }
 
@@ -159,6 +173,7 @@ ul { margin: 0; padding-left: 1.2em; }
 
 .nav {
     display: flex;
+    margin-left: auto;
     flex-wrap: wrap;
     gap: 4px;
     list-style: none;
@@ -387,17 +402,17 @@ ul { margin: 0; padding-left: 1.2em; }
     font-family: var(--mono);
     font-size: 0.82rem;
     line-height: 1.7;
-    color: #d6e2ea;
-    background: #091418;
+    color: var(--code-text);
+    background: var(--code-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
-.code .k { color: #a8d35f; }   /* palavras da linguagem */
-.code .s { color: #8fc8da; }   /* textos */
-.code .t { color: #e3cf6c; }   /* tipos */
-.code .c { color: #7f9690; }   /* comentários */
+.code .k { color: var(--code-k); }   /* palavras da linguagem */
+.code .s { color: var(--code-s); }   /* textos */
+.code .t { color: var(--code-t); }   /* tipos */
+.code .c { color: var(--code-c); }   /* comentários */
 
 .facts {
     list-style: none;
@@ -585,10 +600,129 @@ tbody th { white-space: nowrap; }
     color: var(--muted);
     font-size: 0.9rem;
     border-top: 1px solid var(--border);
-    background: rgba(8, 18, 22, 0.5);
+    background: var(--footer-bg);
 }
 
 .site-footer p { margin: 0.2em 0; }
+
+/* ---------- Seletor de tema ---------- */
+
+/* Sem JavaScript o seletor não funcionaria, então só aparece quando há JS */
+.theme-switch {
+    display: none;
+    gap: 2px;
+    padding: 3px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+.js .theme-switch {
+    display: inline-flex;
+}
+
+.theme-switch button {
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.theme-switch button:hover {
+    color: var(--text);
+    background: var(--surface-hover);
+}
+
+.theme-switch button[aria-pressed="true"] {
+    color: var(--accent-ink);
+    background: var(--accent);
+}
+
+.theme-switch button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ---------- Tema claro ---------- */
+
+:root[data-theme="claro"] {
+    --bg-1: #f4f8f1;
+    --bg-2: #e8f0ea;
+    --bg-3: #d9e8e9;
+
+    --surface: rgba(255, 255, 255, 0.7);
+    --surface-hover: #ffffff;
+    --border: rgba(22, 48, 58, 0.16);
+
+    --text: #13262c;
+    --muted: #46606a;
+    --accent: #3a7116;          /* verde das folhas, mais escuro para ler bem no fundo claro */
+    --accent-rgb: 58, 113, 22;
+    --accent-ink: #ffffff;
+
+    --header-bg: rgba(244, 248, 241, 0.9);
+    --footer-bg: rgba(217, 232, 233, 0.6);
+    --inline-code-bg: rgba(22, 48, 58, 0.08);
+    --inline-code-text: #1f3a44;
+    --shadow: 0 10px 30px rgba(22, 48, 58, 0.12);
+    --scheme: light;
+    /* o bloco de código continua escuro, como num editor */
+}
+
+/* ---------- Tema alto contraste ---------- */
+
+:root[data-theme="contraste"] {
+    --bg-1: #000000;
+    --bg-2: #000000;
+    --bg-3: #000000;
+
+    --surface: #000000;
+    --surface-hover: #1f1f1f;
+    --border: #ffffff;
+
+    --text: #ffffff;
+    --muted: #f0f0f0;
+    --accent: #ffff00;
+    --accent-rgb: 255, 255, 0;
+    --accent-ink: #000000;
+
+    --header-bg: #000000;
+    --footer-bg: #000000;
+    --inline-code-bg: #000000;
+    --inline-code-text: #ffffff;
+    --code-bg: #000000;
+    --code-text: #ffffff;
+    --code-k: #ffff00;
+    --code-s: #00ffff;
+    --code-t: #ffffff;
+    --code-c: #e0e0e0;
+    --shadow: none;
+    --scheme: dark;
+}
+
+:root[data-theme="contraste"] .tags li,
+:root[data-theme="contraste"] .chip,
+:root[data-theme="contraste"] :not(pre) > code {
+    background: transparent;
+    border: 1px solid var(--accent);
+}
+
+:root[data-theme="contraste"] .card:hover {
+    border-color: var(--accent);
+}
+
+:root[data-theme="contraste"] .btn {
+    border-width: 3px;
+}
+
+:root[data-theme="contraste"] a {
+    text-decoration-thickness: 2px;
+}
 
 /* ---------- Celular e tablet ---------- */
 

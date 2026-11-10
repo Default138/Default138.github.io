@@ -1,6 +1,6 @@
 # Portfólio - Rafael Camargo
 
-Site pessoal feito só com **HTML e CSS**: sem JavaScript, sem biblioteca e sem internet para funcionar.
+Site pessoal feito com **HTML e CSS** (e um pouco de JavaScript só para o seletor de tema): sem biblioteca e sem internet para funcionar.
 Funciona abrindo o `index.html` direto no navegador (duplo clique). No VS Code, a extensão
 "Live Server" também serve para ver as mudanças ao salvar.
 
@@ -14,6 +14,7 @@ curriculo.html   Currículo (Ctrl+P salva em PDF; a impressão já sai limpa)
 css/style.css    Todo o visual do site
 img/foto.jpg     Foto do perfil (recortada)
 img/favicon.svg  Ícone da aba do navegador
+js/tema.js       Seletor de tema: Claro, Escuro e Alto contraste (a escolha fica salva no navegador)
 ```
 
 ## Como editar
@@ -26,7 +27,7 @@ img/favicon.svg  Ícone da aba do navegador
 - **Foto:** troque o arquivo `img/foto.jpg` (de preferência quadrado, uns 600x600). Depois, nos `.html`, use
   "Localizar e substituir" para trocar `foto.jpg?v=2` por `foto.jpg?v=3` (e assim por diante). Sem isso, quem
   já visitou o site continua vendo a foto antiga, guardada pelo navegador. O mesmo vale para as cores:
-  ao mudar o `css/style.css`, troque `style.css?v=2` por `style.css?v=3`.
+  ao mudar o `css/style.css`, troque `style.css?v=3` por `style.css?v=4` (e o mesmo para `tema.js?v=1` se mudar o seletor).
 - **Currículo:** `curriculo.html` foi montado a partir do seu PDF do Canva. Quando mudar de emprego ou
   concluir um curso, copie um bloco `<div class="cv-item"> ... </div>` e atualize datas e textos.
 - **Contatos:** e-mail, WhatsApp, GitHub e Instagram aparecem em `index.html`, `sobre.html` e `curriculo.html`.

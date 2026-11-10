@@ -20,7 +20,21 @@
     <meta name="twitter:card" content="summary">
 
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg?v=2">
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <!-- Aplica o tema escolhido antes de desenhar a página (para não "piscar" com o tema errado) -->
+    <script>
+        (function () {
+            var t = null, url = /[?&]tema=(claro|escuro|contraste)/.exec(location.search);
+            try { t = url ? url[1] : localStorage.getItem('tema'); } catch (e) { t = url ? url[1] : null; }
+            if (t !== 'claro' && t !== 'escuro' && t !== 'contraste') {
+                var sistema = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
+                t = sistema('(prefers-contrast: more)') ? 'contraste' : (sistema('(prefers-color-scheme: light)') ? 'claro' : 'escuro');
+            }
+            document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.className += ' js';
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <script src="js/tema.js?v=1" defer></script>
 </head>
 <body>
 
@@ -37,6 +51,11 @@
                     <li><a href="curriculo.html">Currículo</a></li>
                 </ul>
             </nav>
+            <div class="theme-switch" role="group" aria-label="Tema do site">
+                <button type="button" data-tema="claro" aria-pressed="false">Claro</button>
+                <button type="button" data-tema="escuro" aria-pressed="false">Escuro</button>
+                <button type="button" data-tema="contraste" aria-pressed="false">Alto contraste</button>
+            </div>
         </div>
     </header>
 
@@ -156,7 +175,7 @@
     <footer class="site-footer">
         <div class="container">
             <p>&copy; 2026 Rafael Camargo &middot; Foz do Iguaçu, PR</p>
-            <p>Feito à mão com HTML e CSS. &ldquo;Todo sistema grande começou com um <code>CREATE TABLE</code>.&rdquo;</p>
+            <p>Feito à mão com HTML, CSS e um pouco de JavaScript. &ldquo;Todo sistema grande começou com um <code>CREATE TABLE</code>.&rdquo;</p>
         </div>
     </footer>
 
