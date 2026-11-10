@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rafael Camargo | Portfólio</title>
+    <meta name="description" content="Portfólio de Rafael Camargo, estudante de Desenvolvimento de Sistemas de Foz do Iguaçu (PR). PHP, MVC, banco de dados e Python.">
+    <meta name="theme-color" content="#0f2027">
+
+    <!-- Pré-visualização do link (WhatsApp, LinkedIn, etc.) -->
+    <link rel="canonical" href="https://default138.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Rafael Camargo">
+    <meta property="og:title" content="Rafael Camargo | Portfólio">
+    <meta property="og:description" content="Estudante de Desenvolvimento de Sistemas de Foz do Iguaçu (PR). PHP, MVC, banco de dados e Python.">
+    <meta property="og:url" content="https://default138.github.io/">
+    <meta property="og:image" content="https://default138.github.io/img/foto.jpg">
+    <meta property="og:image:alt" content="Foto de Rafael Camargo">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html">&lt;<span>Camargo</span>/&gt;</a>
+            <nav aria-label="Menu principal">
+                <ul class="nav">
+                    <li><a href="index.html" aria-current="page">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="curriculo.html">Currículo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- Apresentação -->
+        <section class="container hero">
+            <div>
+                <p class="kicker">&lt;?php // olá, mundo ?&gt;</p>
+                <h1>Olá, eu sou o Camargo</h1>
+                <p class="lead">
+                    Sou o Rafael Camargo, de Foz do Iguaçu (PR), e estou cursando Técnico em Desenvolvimento de Sistemas.
+                    Gosto de transformar tabelas SQL em sistemas completos, com o código organizado em camadas.
+                </p>
+                <div class="btn-row">
+                    <a class="btn btn-primary" href="projetos.html">Ver projetos</a>
+                    <a class="btn btn-outline" href="curriculo.html">Ver currículo</a>
+                </div>
+            </div>
+            <img class="photo" src="img/foto.jpg" width="230" height="230" alt="Foto de Rafael Camargo">
+        </section>
+
+        <!-- Resumo -->
+        <section class="container section" aria-labelledby="resumo">
+            <div class="two-col">
+                <pre class="code" aria-hidden="true"><code><span class="k">&lt;?php</span>
+
+<span class="k">class</span> <span class="t">Camargo</span>
+{
+    <span class="k">public</span> <span class="t">string</span> $curso     = <span class="s">"Técnico em Desenvolvimento de Sistemas"</span>;
+    <span class="k">public</span> <span class="t">array</span>  $foco      = [<span class="s">"PHP"</span>, <span class="s">"MVC"</span>, <span class="s">"Banco de Dados"</span>];
+    <span class="k">public</span> <span class="t">string</span> $filosofia = <span class="s">"Código limpo, camadas bem separadas."</span>;
+
+    <span class="k">public function</span> hoje(): <span class="t">string</span>
+    {
+        <span class="k">return</span> <span class="s">"Construindo sistemas do zero."</span>;
+    }
+}</code></pre>
+                <div>
+                    <h2 id="resumo">Em poucas linhas</h2>
+                    <ul class="facts">
+                        <li><strong>Foco:</strong> PHP, MVC, banco de dados e padrões de projeto.</li>
+                        <li><strong>Jeito de trabalhar:</strong> Model, DAO, Service, Controller e View, cada coisa no seu lugar.</li>
+                        <li><strong>Dia a dia:</strong> Linux e Windows, com XAMPP, VS Code e Git.</li>
+                        <li><strong>Também estudo:</strong> Python, APIs e automação.</li>
+                    </ul>
+                    <p><a href="sobre.html">Quer saber mais? Leia a página Sobre &rarr;</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos em destaque -->
+        <section class="container section" aria-labelledby="destaques">
+            <div class="section-title">
+                <h2 id="destaques">Projetos em destaque</h2>
+                <a href="projetos.html">Ver todos os projetos &rarr;</a>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <h3>Gerador de Framework MVC</h3>
+                    <p>Você envia um arquivo <code>.sql</code> e recebe um sistema completo (Model, View, Control e DAO) em Bootstrap, pronto para baixar em <code>.zip</code>.</p>
+                    <ul class="tags"><li>PHP</li><li>MVC</li><li>Regex</li><li>MySQL</li></ul>
+                    <a class="card-link" href="https://github.com/Default138/FrameWork/tree/main/3Bim/Opcional/ProjetoUpdate" target="_blank" rel="noopener noreferrer">Ver no GitHub &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>Framework de Estatística</h3>
+                    <p>Calcula média, mediana, moda, desvio-padrão e ANOVA a partir de qualquer tabela do banco de dados, com uma tela para escolher os dados.</p>
+                    <ul class="tags"><li>PHP</li><li>MySQL</li><li>PDO</li><li>Estatística</li></ul>
+                    <a class="card-link" href="https://github.com/Default138/FrameWork/tree/main/4Bim/Projeto" target="_blank" rel="noopener noreferrer">Ver no GitHub &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>CrudAlunos</h3>
+                    <p>Cadastro, listagem, edição e exclusão de alunos e cursos, com o código separado em camadas e telas em Bootstrap.</p>
+                    <ul class="tags"><li>PHP</li><li>MySQL</li><li>CRUD</li><li>Bootstrap</li></ul>
+                    <a class="card-link" href="https://github.com/Default138/WebDom/tree/main/crudalunos" target="_blank" rel="noopener noreferrer">Ver no GitHub &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Ferramentas -->
+        <section class="container section" aria-labelledby="stack">
+            <h2 id="stack">Tecnologias</h2>
+            <ul class="chips">
+                <li class="chip">PHP</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">Python</li>
+                <li class="chip">HTML</li>
+                <li class="chip">CSS</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">Bootstrap</li>
+                <li class="chip">Git e GitHub</li>
+                <li class="chip">Linux</li>
+                <li class="chip">XAMPP</li>
+            </ul>
+        </section>
+
+        <!-- Contato -->
+        <section class="container section" aria-labelledby="contato">
+            <div class="cta">
+                <h2 id="contato">Vamos conversar?</h2>
+                <p>Quer trocar uma ideia sobre código, projetos ou estudos? É só chamar.</p>
+                <div class="btn-row">
+                    <a class="btn btn-primary" href="mailto:rafaelc.ifpr2024@gmail.com">E-mail</a>
+                    <a class="btn btn-outline" href="https://wa.link/48gztm" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a class="btn btn-outline" href="https://github.com/Default138" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a class="btn btn-outline" href="https://www.instagram.com/eo_.camargo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Rafael Camargo &middot; Foz do Iguaçu, PR</p>
+            <p>Feito à mão com HTML e CSS. &ldquo;Todo sistema grande começou com um <code>CREATE TABLE</code>.&rdquo;</p>
+        </div>
+    </footer>
+
+</body>
+</html>
