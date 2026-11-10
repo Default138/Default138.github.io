@@ -23,7 +23,9 @@ img/favicon.svg  Ícone da aba do navegador
 - **Cores:** no começo do `css/style.css` ficam as variáveis (`--accent`, `--bg-1`...). Mudar ali muda o site todo.
 - **Novo projeto:** em `projetos.html`, copie um bloco `<article class="card"> ... </article>` e troque título,
   descrição, tags e link.
-- **Foto:** troque o arquivo `img/foto.jpg` (de preferência quadrado, uns 400x400).
+- **Foto:** troque o arquivo `img/foto.jpg` (de preferência quadrado, uns 600x600). Depois, nos `.html`, use
+  "Localizar e substituir" para trocar `foto.jpg?v=2` por `foto.jpg?v=3` (e assim por diante). Sem isso, quem
+  já visitou o site continua vendo a foto antiga, guardada pelo navegador.
 - **Currículo:** `curriculo.html` foi montado a partir do seu PDF do Canva. Quando mudar de emprego ou
   concluir um curso, copie um bloco `<div class="cv-item"> ... </div>` e atualize datas e textos.
 - **Contatos:** e-mail, WhatsApp, GitHub e Instagram aparecem em `index.html`, `sobre.html` e `curriculo.html`.
