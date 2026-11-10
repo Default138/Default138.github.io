@@ -25,7 +25,8 @@ img/favicon.svg  Ícone da aba do navegador
   descrição, tags e link.
 - **Foto:** troque o arquivo `img/foto.jpg` (de preferência quadrado, uns 600x600). Depois, nos `.html`, use
   "Localizar e substituir" para trocar `foto.jpg?v=2` por `foto.jpg?v=3` (e assim por diante). Sem isso, quem
-  já visitou o site continua vendo a foto antiga, guardada pelo navegador.
+  já visitou o site continua vendo a foto antiga, guardada pelo navegador. O mesmo vale para as cores:
+  ao mudar o `css/style.css`, troque `style.css?v=2` por `style.css?v=3`.
 - **Currículo:** `curriculo.html` foi montado a partir do seu PDF do Canva. Quando mudar de emprego ou
   concluir um curso, copie um bloco `<div class="cv-item"> ... </div>` e atualize datas e textos.
 - **Contatos:** e-mail, WhatsApp, GitHub e Instagram aparecem em `index.html`, `sobre.html` e `curriculo.html`.

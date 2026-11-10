@@ -7,18 +7,21 @@
    ========================================================== */
 
 :root {
-    --bg-1: #0f2027;
-    --bg-2: #203a43;
-    --bg-3: #2c5364;
+    /* Paleta tirada da foto de perfil: o azul-petróleo do banco do trem (fundo)
+       e o verde claro das folhas lá fora (destaque). */
+    --bg-1: #0b171c;          /* sombra do banco */
+    --bg-2: #16303a;          /* banco */
+    --bg-3: #234652;          /* banco iluminado */
 
     --surface: rgba(255, 255, 255, 0.05);
     --surface-hover: rgba(255, 255, 255, 0.09);
     --border: rgba(255, 255, 255, 0.13);
 
-    --text: #e8eef2;
-    --muted: #a9bcc8;
-    --accent: #36bcf7;
-    --accent-ink: #06222e;   /* cor do texto sobre o botão azul */
+    --text: #e9efea;
+    --muted: #a9bdb8;
+    --accent: #a8d35f;        /* verde das folhas */
+    --accent-rgb: 168, 211, 95;   /* o mesmo verde, para usar com transparência: rgba(var(--accent-rgb), 0.2) */
+    --accent-ink: #13240d;    /* cor do texto sobre o botão verde */
 
     --radius: 14px;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -130,7 +133,7 @@ ul { margin: 0; padding-left: 1.2em; }
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(15, 32, 39, 0.85);
+    background: rgba(11, 23, 28, 0.85);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
 }
@@ -210,7 +213,7 @@ ul { margin: 0; padding-left: 1.2em; }
 }
 
 .btn-outline:hover {
-    background: rgba(54, 188, 247, 0.12);
+    background: rgba(var(--accent-rgb), 0.12);
 }
 
 .btn-row {
@@ -249,7 +252,7 @@ ul { margin: 0; padding-left: 1.2em; }
     object-fit: cover;
     object-position: 40% 30%;
     border: 3px solid var(--accent);
-    box-shadow: 0 0 0 10px rgba(54, 188, 247, 0.13), var(--shadow);
+    box-shadow: 0 0 0 10px rgba(var(--accent-rgb), 0.13), var(--shadow);
 }
 
 /* ---------- Seções ---------- */
@@ -300,7 +303,7 @@ ul { margin: 0; padding-left: 1.2em; }
 .card:hover {
     transform: translateY(-4px);
     background: var(--surface-hover);
-    border-color: rgba(54, 188, 247, 0.5);
+    border-color: rgba(var(--accent-rgb), 0.5);
 }
 
 .card h3 { margin-bottom: 0.4em; }
@@ -330,8 +333,8 @@ ul { margin: 0; padding-left: 1.2em; }
     font-family: var(--mono);
     font-size: 0.8rem;
     color: var(--accent);
-    background: rgba(54, 188, 247, 0.1);
-    border: 1px solid rgba(54, 188, 247, 0.3);
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
     border-radius: 999px;
 }
 
@@ -385,16 +388,16 @@ ul { margin: 0; padding-left: 1.2em; }
     font-size: 0.82rem;
     line-height: 1.7;
     color: #d6e2ea;
-    background: #0a161b;
+    background: #091418;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
-.code .k { color: #36bcf7; }   /* palavras da linguagem */
-.code .s { color: #a5e3b3; }   /* textos */
-.code .t { color: #f0c987; }   /* tipos */
-.code .c { color: #7d93a1; }   /* comentários */
+.code .k { color: #a8d35f; }   /* palavras da linguagem */
+.code .s { color: #8fc8da; }   /* textos */
+.code .t { color: #e3cf6c; }   /* tipos */
+.code .c { color: #7f9690; }   /* comentários */
 
 .facts {
     list-style: none;
@@ -582,7 +585,7 @@ tbody th { white-space: nowrap; }
     color: var(--muted);
     font-size: 0.9rem;
     border-top: 1px solid var(--border);
-    background: rgba(10, 22, 27, 0.5);
+    background: rgba(8, 18, 22, 0.5);
 }
 
 .site-footer p { margin: 0.2em 0; }
@@ -641,7 +644,7 @@ tbody th { white-space: nowrap; }
         border: 0;
     }
 
-    .cv h2 { color: #0b5d82; border-color: #bbb; }
+    .cv h2 { color: #3f6d1e; border-color: #bbb; }
     .cv-head, .cv-head p, .cv-item .when, a { color: #111; }
     .cv-head { border-color: #bbb; }
 }
