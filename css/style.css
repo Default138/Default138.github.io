@@ -782,3 +782,134 @@ tbody th { white-space: nowrap; }
     .cv-head, .cv-head p, .cv-item .when, a { color: #111; }
     .cv-head { border-color: #bbb; }
 }
+
+
+/* ==========================================================
+   Camada de movimento: entrada suave, profundidade e editor
+   ========================================================== */
+
+:root {
+    --motion-fast: 180ms;
+    --motion-normal: 420ms;
+    --motion-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+html { scroll-padding-top: 90px; }
+
+.site-header {
+    transition: background var(--motion-normal) ease, border-color var(--motion-normal) ease;
+}
+
+.brand { transition: color var(--motion-fast) ease, letter-spacing var(--motion-fast) ease; }
+.brand:hover { letter-spacing: .04em; }
+
+.nav a,
+.theme-switch button {
+    transition: color var(--motion-fast) ease, background var(--motion-fast) ease,
+                transform var(--motion-fast) var(--motion-ease);
+}
+
+.nav a:hover { transform: translateY(-2px); }
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform var(--motion-fast) var(--motion-ease),
+                box-shadow var(--motion-fast) ease,
+                background var(--motion-fast) ease;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.22), transparent 80%);
+    transform: translateX(-120%);
+    transition: transform 550ms ease;
+}
+.btn:hover::before { transform: translateX(120%); }
+.btn-primary:hover { box-shadow: 0 8px 26px rgba(var(--accent-rgb), .24); }
+
+.card {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform 260ms var(--motion-ease), background 260ms ease,
+                border-color 260ms ease, box-shadow 260ms ease;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 260ms var(--motion-ease);
+}
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 36px rgba(0,0,0,.18);
+}
+.card:hover::before { transform: scaleY(1); }
+.card-link { display: inline-flex; width: fit-content; transition: gap 180ms ease; }
+.card-link:hover { letter-spacing: .01em; }
+
+.photo {
+    transition: transform 500ms var(--motion-ease), box-shadow 500ms ease;
+}
+.photo:hover {
+    transform: translateY(-4px) scale(1.025);
+    box-shadow: 0 0 0 12px rgba(var(--accent-rgb), .16), 0 18px 42px rgba(0,0,0,.28);
+}
+
+/* Os elementos só começam ocultos quando o JavaScript está ativo. */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 650ms var(--motion-ease),
+                transform 650ms var(--motion-ease);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Editor com brilho discreto e cursor piscando durante a digitação. */
+.typing-code {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(var(--accent-rgb), .22);
+    box-shadow: var(--shadow), 0 0 34px rgba(var(--accent-rgb), .045);
+}
+.typing-code::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    width: 8px;
+    height: 1.15em;
+    background: var(--accent);
+    opacity: 0;
+    animation: code-caret 850ms steps(2, start) infinite;
+}
+.typing-code:not(.typing-done)::after { opacity: 1; }
+@keyframes code-caret { to { opacity: 0; } }
+
+@media (max-width: 800px) {
+    .js .reveal { transform: translateY(14px); }
+    .card:hover { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal,
+    .js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .typing-code::after { display: none; }
+    .card, .photo, .btn, .nav a { transition: none !important; }
+}
